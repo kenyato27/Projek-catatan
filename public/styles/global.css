@@ -1,0 +1,18 @@
+.symbol {
+  display: flex;
+  justify-content: center;
+}
+.symbol a {
+  text-decoration: none;
+  padding: 10px;
+  padding-bottom: 50px;
+  margin: 3px;
+}
+.symbol a i {
+  color: black;
+  font-size: 1.4rem;
+  transition: color 0.4 ease;
+}
+.symbol a:hover i {
+  color: #ffc107;
+}

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Tambah Catatan</h1>
+      <form method="post" action="/catatan">
+        <div class="mb-3">
+          <label for="Judulcatatan" class="form-label">Judul catatan</label>
+          <input type="text" class="form-control" id="Judulcatatan" name="Judulcatatan" required />
+        </div>
+        <div class="mb-3">
+          <label for="Tanggalcatatan" class="form-label">Tanggal catatan dibuat</label>
+          <input type="datetime-local" id="form-control" name="Tanggalcatatan" required />
+        </div>
+        <div class="mb-3">
+          <label for="catatan" class="form-label">Catatan hari Ini</label>
+          <textarea class="form-control" id="catatan" rows="3" name="catatan" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">tambah</button>
+      </form>
+    </div>
+  </div>
+</div>

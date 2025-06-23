@@ -1,0 +1,33 @@
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title"><%= data.Judulcatatan %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= data.Tanggalcatatan.toISOString().split('T')[0] %></h6>
+    <p class="card-text"><%= data.catatan %></p>
+    <% if (data.stasuses) { %>
+    <p class="text-muted">Terakhir diperbarui: <%= new Date(data.statuses).toLocaleString("id-ID") %></p>
+    <% } %>
+
+    <a href="/catatan" class="card-link">&laquo; Kembali</a>
+    <a href="/catatan/edit/<%= data._id %>" class="btn btn-secondary btn-sm">Edit</a>
+    <button type="button" class="btn btn-danger btn-sm deleteBtn" data-id="<%= data._id %>" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+  </div>
+</div>
+
+<!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Konfirmasi Hapus</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Apakah kamu yakin ingin menghapus catatan ini?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <form action="/catatan/<%= data._id %>?_method=DELETE" method="post" class="d-inline">
+          <button type="submit" class="btn btn-danger btn-secondary btn-sm">Hapus</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

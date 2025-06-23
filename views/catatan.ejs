@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col mt-3">
+      <div class="d-flex justify-content-between">
+        <h1>Daftar Catatan</h1>
+        <a href="/catatan/tambah" class="btn btn-info mb-5">tambah data</a>
+      </div>
+      <% if ( msg.length !== 0) { %>
+      <div class="alert alert-success" role="alert"><%= msg %></div>
+      <% } %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Judul Catatan</th>
+            <th scope="col">Tanggal Catatan dibuat</th>
+            <th scope="col">Status</th>
+            <th scope="col">Catatan</th>
+            <th scope="col">#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data.length == 0) { %>
+          <div class="alert alert-warning" role="alert">Tidak ada catatan</div>
+          <% } %> <% let no = 0 %><% data.forEach(element => { %>
+          <tr>
+            <th scope="row"><%= ++no %></th>
+            <td scope="row"><%= element.Judulcatatan %></td>
+            <td scope="row"><%= element.Tanggalcatatan.toLocaleString("id-ID")%></td>
+            <td scope="row"><%= new Date(element.statuses).toLocaleString("id-ID") %></td>
+            <td scope="row"><%= element.catatan.length> 50 ? element.catatan.substring(0, 50) + "..." : element.catatan %></td>
+            <td>
+              <a href="/catatan/detail/<%= element._id %>" class="btn btn-primary badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
